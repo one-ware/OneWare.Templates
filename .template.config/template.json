@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Hendrik Mennen",
+    "classifications": [ "OneWare", "FPGA", "Extension" ],
+    "description": "A template to easily start creating an extension for OneWare",
+    "groupidentity": "OneWare.Extension",
+    "identity": "OneWare.Extension",
+    "name": "OneWare Extension",
+    "preferNameDirectory": true,
+    "shortName": "oneware.extension",
+    "sourceName": "OneWare.ExtensionTemplate",
+    "defaultName": "OneWare.Extension",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols": {
+      "Framework": {
+        "type": "parameter",
+        "description": "The target framework for the project.",
+        "datatype": "choice",
+        "choices": [
+          {
+            "choice": "net8.0",
+            "description": "Target net8.0"
+          }
+        ],
+        "replaces": "FrameworkParameter",
+        "defaultValue": "net8.0"
+      }
+    },
+    "sources": [
+      {
+        "modifiers": []
+      }
+    ],
+    "primaryOutputs": [
+      { "path": "src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj" },
+      { "path": "tests/OneWare.ExtensionTemplate.UnitTests/OneWare.ExtensionTemplate.UnitTests.csproj" }
+    ]
+  }
