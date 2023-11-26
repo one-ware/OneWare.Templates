@@ -1,5 +1,7 @@
 # Dotnet Templates for OneWare
 
+[![Publish Nuget Packages](https://github.com/ProtopSolutions/OneWare.Templates/actions/workflows/publish-nuget.yml/badge.svg)](https://github.com/ProtopSolutions/OneWare.Templates/actions/workflows/publish-nuget.yml)
+
 For more information about `dotnet new` templates see [here](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/).
 
 ## Installing the templates
