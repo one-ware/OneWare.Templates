@@ -5,21 +5,21 @@
   "id": "OneWareExtensionTemplateModule",
   "description": "OneWareExtensionTemplate for OneWare",
   "license": "MIT",
-  "iconUrl": "https://raw.githubusercontent.com/GithubUser/OneWareExtensionTemplate/main/Icon.png",
+  "iconUrl": "https://raw.githubusercontent.com/#GithubUser#/OneWareExtensionTemplate/main/Icon.png",
   "tabs": [
     {
       "title": "Readme",
-      "contentUrl": "https://raw.githubusercontent.com/GithubUser/OneWareExtensionTemplate/main/Extension.md"
+      "contentUrl": "https://raw.githubusercontent.com/#GithubUser#/OneWareExtensionTemplate/main/Extension.md"
     },
     {
       "title": "License",
-      "contentUrl": "https://raw.githubusercontent.com/GithubUser/OneWareExtensionTemplate/main/License.md"
+      "contentUrl": "https://raw.githubusercontent.com/#GithubUser#/OneWareExtensionTemplate/main/License.md"
     }
   ],
   "links": [
     {
       "name": "Github",
-      "url": "https://github.com/GithubUser/OneWareExtensionTemplate"
+      "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate"
     }
   ],
   "versions": [
@@ -28,19 +28,19 @@
       "targets": [
         {
           "target": "win-x64",
-          "url": "https://github.com/GithubUser/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_win-x64.zip"
+          "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_win-x64.zip"
         },
         {
           "target": "linux-x64",
-          "url": "https://github.com/GithubUser/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_linux-x64.zip"
+          "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_linux-x64.zip"
         },
         {
           "target": "osx-x64",
-          "url": "https://github.com/GithubUser/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_osx-x64.zip"
+          "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_osx-x64.zip"
         },
         {
           "target": "osx-arm64",
-          "url": "https://github.com/GithubUser/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_osx-arm64.zip"
+          "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplateExtension_0.1_osx-arm64.zip"
         }
       ]
     }

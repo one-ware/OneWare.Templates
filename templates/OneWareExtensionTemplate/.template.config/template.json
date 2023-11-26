@@ -27,6 +27,12 @@
         ],
         "replaces": "FrameworkParameter",
         "defaultValue": "net8.0"
+      },
+      "GithubUser": {
+        "type": "parameter",
+        "description": "The Github Account/Organization Name for this repo. This will simplify generating the README file and oneware-extension.json",
+        "replaces": "#GithubUser#",
+        "defaultValue": "GithubUser"
       }
     },
     "sources": [
