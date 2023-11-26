@@ -1,47 +1,64 @@
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "Hendrik Mennen",
-    "classifications": [ "OneWare", "FPGA", "Extension" ],
-    "description": "A template to easily start creating an extension for OneWare",
-    "groupidentity": "OneWare.Extension",
-    "identity": "OneWare.Extension",
-    "name": "OneWare Extension",
-    "preferNameDirectory": true,
-    "shortName": "oneware.extension",
-    "sourceName": "OneWareExtensionTemplate",
-    "defaultName": "OneWare.Extension",
-    "tags": {
-      "language": "C#",
-      "type": "project"
-    },
-    "symbols": {
-      "Framework": {
-        "type": "parameter",
-        "description": "The target framework for the project.",
-        "datatype": "choice",
-        "choices": [
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Hendrik Mennen",
+  "classifications": ["OneWare", "FPGA", "Extension"],
+  "description": "A template to easily start creating an extension for OneWare",
+  "groupidentity": "OneWare.Extension",
+  "identity": "OneWare.Extension",
+  "name": "OneWare Extension",
+  "preferNameDirectory": true,
+  "shortName": "oneware.extension",
+  "sourceName": "OneWareExtensionTemplate",
+  "defaultName": "OneWare.Extension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "cleanProjectName": {
+      "type": "generated",
+      "generator": "regex",
+      "parameters": {
+        "source": "name",
+        "steps": [
           {
-            "choice": "net8.0",
-            "description": "Target net8.0"
+            "regex": "[^A-Za-z0-9_]",
+            "replacement": ""
           }
-        ],
-        "replaces": "FrameworkParameter",
-        "defaultValue": "net8.0"
+        ]
       },
-      "GithubUser": {
-        "type": "parameter",
-        "description": "The Github Account/Organization Name for this repo. This will simplify generating the README file and oneware-extension.json",
-        "replaces": "#GithubUser#",
-        "defaultValue": "GithubUser"
-      }
+      "replaces": "OneWareExtensionClassTemplate",
+      "fileRename": "OneWareExtensionClassTemplate"
     },
-    "sources": [
-      {
-        "modifiers": []
-      }
-    ],
-    "primaryOutputs": [
-      { "path": "src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj" },
-      { "path": "tests/OneWareExtensionTemplate.UnitTests/OneWareExtensionTemplate.UnitTests.csproj" }
-    ]
-  }
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net8.0",
+          "description": "Target net8.0"
+        }
+      ],
+      "replaces": "FrameworkParameter",
+      "defaultValue": "net8.0"
+    },
+    "GithubUser": {
+      "type": "parameter",
+      "description": "The Github Account/Organization Name for this repo. This will simplify generating the README file and oneware-extension.json",
+      "replaces": "#GithubUser#",
+      "defaultValue": "GithubUser"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": []
+    }
+  ],
+  "primaryOutputs": [
+    { "path": "src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj" },
+    {
+      "path": "tests/OneWareExtensionTemplate.UnitTests/OneWareExtensionTemplate.UnitTests.csproj"
+    }
+  ]
+}

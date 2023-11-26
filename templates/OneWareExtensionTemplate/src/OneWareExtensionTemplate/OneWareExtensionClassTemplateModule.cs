@@ -6,7 +6,7 @@ using Prism.Modularity;
 
 namespace OneWareExtensionTemplate;
 
-public class OneWareExtensionTemplateModule : IModule
+public class OneWareExtensionClassTemplateModule : IModule
 {
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {

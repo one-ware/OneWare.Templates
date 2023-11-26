@@ -2,7 +2,7 @@
 
 namespace OneWareExtensionTemplate.UnitTests;
 
-public class ExtensionTemplateTests
+public class OneWareExtensionClassTemplateTests
 {
     //Add your unit tests here
     
