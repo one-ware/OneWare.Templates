@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\OneWare.ExtensionTemplate\OneWare.ExtensionTemplate.csproj" />
+      <ProjectReference Include="..\..\src\OneWareExtensionTemplate\OneWareExtensionTemplate.csproj" />
     </ItemGroup>
 
     <ItemGroup>

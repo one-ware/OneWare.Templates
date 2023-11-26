@@ -5,3 +5,4 @@
 *.nupkg
 *.DS_store
 .idea
+/TestProject

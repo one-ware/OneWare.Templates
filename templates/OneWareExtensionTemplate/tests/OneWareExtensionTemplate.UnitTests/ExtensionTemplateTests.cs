@@ -1,12 +1,14 @@
 ﻿using Xunit;
 
-namespace OneWare.ExtensionTemplate.UnitTests;
+namespace OneWareExtensionTemplate.UnitTests;
 
 public class ExtensionTemplateTests
 {
+    //Add your unit tests here
+    
     [Fact]
     public void LoadLibrary()
     {
-        //TODO
+        Assert.True(true);
     }
 }

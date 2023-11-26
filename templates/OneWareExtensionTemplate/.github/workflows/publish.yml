@@ -26,21 +26,21 @@ jobs:
       uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
       id: get-version
       with:
-        proj-path: src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj
+        proj-path: src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj
     - name: Build ${{ matrix.target }}
-      run: dotnet build src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj -c Release -r ${{ matrix.target }} -o publish
+      run: dotnet build src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj -c Release -r ${{ matrix.target }} -o publish
     - name: Compress ${{ matrix.target }}
       uses: thedoctor0/zip-release@0.7.1
       with:
         type: 'zip'
-        filename: ../OneWare_ExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
+        filename: ../OneWareExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
         directory: ./publish
     - uses: actions/upload-artifact@v3
       with:
-        name: OneWare_ExtensionTemplateExtension_${{ matrix.target }}
+        name: OneWareExtensionTemplateExtension_${{ matrix.target }}
         if-no-files-found: error
         retention-days: 5
-        path: ./OneWare_ExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
+        path: ./OneWareExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
         
   release:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
         id: get-version
         with:
-          proj-path: src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj
+          proj-path: src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj
       - uses: actions/download-artifact@v3
         with:
           path: ./artifacts

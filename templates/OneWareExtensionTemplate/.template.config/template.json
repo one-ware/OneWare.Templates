@@ -8,7 +8,7 @@
     "name": "OneWare Extension",
     "preferNameDirectory": true,
     "shortName": "oneware.extension",
-    "sourceName": "OneWare.ExtensionTemplate",
+    "sourceName": "OneWareExtensionTemplate",
     "defaultName": "OneWare.Extension",
     "tags": {
       "language": "C#",
@@ -35,7 +35,7 @@
       }
     ],
     "primaryOutputs": [
-      { "path": "src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj" },
-      { "path": "tests/OneWare.ExtensionTemplate.UnitTests/OneWare.ExtensionTemplate.UnitTests.csproj" }
+      { "path": "src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj" },
+      { "path": "tests/OneWareExtensionTemplate.UnitTests/OneWareExtensionTemplate.UnitTests.csproj" }
     ]
   }

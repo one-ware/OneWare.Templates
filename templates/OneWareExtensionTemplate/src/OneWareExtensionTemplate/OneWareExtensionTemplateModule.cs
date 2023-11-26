@@ -4,9 +4,9 @@ using OneWare.SDK.Services;
 using Prism.Ioc;
 using Prism.Modularity;
 
-namespace OneWare.ExtensionTemplate;
+namespace OneWareExtensionTemplate;
 
-public class ExtensionTemplateModule : IModule
+public class OneWareExtensionTemplateModule : IModule
 {
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
@@ -14,6 +14,7 @@ public class ExtensionTemplateModule : IModule
 
     public void OnInitialized(IContainerProvider containerProvider)
     {
+        //This example adds a context menu for .vhd files
         containerProvider.Resolve<IProjectExplorerService>().RegisterConstructContextMenu(x =>
         {
             if (x is [IProjectFile {Extension: ".vhd"} json])
