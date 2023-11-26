@@ -2,7 +2,7 @@
 
 Template for creating Extensions for OneWare Studio
 
-![image](https://github.com/#GithubUser#/OneWareExtensionTemplate/assets/25281882/5d8d149e-e158-40d1-99fb-4d56bde3c2d9)
+![image](https://github.com/#GithubUser#/OneWareExtensionTemplate/OneWareExtensionTemplate/main/Icon.png9)
 
 [![Test](https://github.com/#GithubUser#/OneWareExtensionTemplate/actions/workflows/test.yml/badge.svg)](https://github.com/#GithubUser#/OneWareExtensionTemplate/actions/workflows/test.yml)
 [![Publish](https://github.com/#GithubUser#/OneWareExtensionTemplate/actions/workflows/publish.yml/badge.svg)](https://github.com/#GithubUser#/OneWareExtensionTemplate/actions/workflows/publish.yml)
