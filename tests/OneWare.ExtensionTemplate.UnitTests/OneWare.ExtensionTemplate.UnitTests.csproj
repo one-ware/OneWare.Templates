@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Library</OutputType>
+        <IsPackable>False</IsPackable>
+        <IsTestProject>True</IsTestProject>
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+        <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\OneWare.ExtensionTemplate\OneWare.ExtensionTemplate.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+      <PackageReference Include="xunit" Version="2.6.2" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,64 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published 
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        target: ["win-x64", "linux-x64", "osx-x64", "osx-arm64"]
+        
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Get Version
+      uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
+      id: get-version
+      with:
+        proj-path: src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj
+    - name: Build ${{ matrix.target }}
+      run: dotnet build src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj -c Release -r ${{ matrix.target }} -o publish
+    - name: Compress ${{ matrix.target }}
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        type: 'zip'
+        filename: ../OneWare_ExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
+        directory: ./publish
+    - uses: actions/upload-artifact@v3
+      with:
+        name: OneWare_ExtensionTemplateExtension_${{ matrix.target }}
+        if-no-files-found: error
+        retention-days: 5
+        path: ./OneWare_ExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
+        
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: [ build ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get Version
+        uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
+        id: get-version
+        with:
+          proj-path: src/OneWare.ExtensionTemplate/OneWare.ExtensionTemplate.csproj
+      - uses: actions/download-artifact@v3
+        with:
+          path: ./artifacts
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "artifacts/**/*.zip"
+          tag: ${{steps.get-version.outputs.version}}
+          allowUpdates: true
