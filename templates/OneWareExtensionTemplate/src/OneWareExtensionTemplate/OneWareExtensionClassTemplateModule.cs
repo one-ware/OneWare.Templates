@@ -1,6 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using OneWare.SDK.Models;
+﻿using OneWare.SDK.Models;
 using OneWare.SDK.Services;
+using OneWare.SDK.ViewModels;
 using Prism.Ioc;
 using Prism.Modularity;
 
@@ -21,7 +21,7 @@ public class OneWareExtensionClassTemplateModule : IModule
             {
                 return new[]
                 {
-                    new MenuItemModel("Hello World")
+                    new MenuItemViewModel("Hello World")
                     {
                         Header = "Hello World"
                     }
