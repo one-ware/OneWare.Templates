@@ -22,10 +22,10 @@ OneWare Extension                    oneware.extension          [C#]      OneWar
 
 # Creating a new Application
 
-To create an OneWare Extension Project called `MyExtension` in its own subdirectory, run:
+To create an OneWare Extension Project called `OneWare.MyExtension` in its own subdirectory, run:
 
 ```
-dotnet new oneware.extensoin -o MyExtension
+dotnet new oneware.extension -o OneWare.MyExtension
 ```
 
 Available parameters:
