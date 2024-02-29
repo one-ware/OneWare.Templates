@@ -16,7 +16,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="OneWare.SDK" Version="0.12.1.0" Private="false" ExcludeAssets="runtime;Native"/>
+        <PackageReference Include="OneWare.Essentials" Version="0.1" Private="false" ExcludeAssets="runtime;Native"/>
     </ItemGroup>
     
 </Project>
