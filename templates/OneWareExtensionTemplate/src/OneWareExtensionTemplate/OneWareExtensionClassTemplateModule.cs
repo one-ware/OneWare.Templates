@@ -17,7 +17,7 @@ public class OneWareExtensionClassTemplateModule : IModule
         //This example adds a context menu for .vhd files
         containerProvider.Resolve<IProjectExplorerService>().RegisterConstructContextMenu(x =>
         {
-            if (x is [IProjectFile {Extension: ".vhd"} json])
+            if (x is [IProjectFile {Extension: ".vhd"}])
             {
                 return new[]
                 {
