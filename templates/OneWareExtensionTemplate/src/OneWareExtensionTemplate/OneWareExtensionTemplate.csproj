@@ -16,7 +16,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="OneWare.Essentials" Version="0.1" Private="false" ExcludeAssets="runtime;Native"/>
+        <PackageReference Include="OneWare.Essentials" Version="0.3" Private="false" ExcludeAssets="runtime;Native"/>
     </ItemGroup>
     
 </Project>
