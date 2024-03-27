@@ -15,19 +15,15 @@ public class OneWareExtensionClassTemplateModule : IModule
     public void OnInitialized(IContainerProvider containerProvider)
     {
         //This example adds a context menu for .vhd files
-        containerProvider.Resolve<IProjectExplorerService>().RegisterConstructContextMenu(x =>
+        containerProvider.Resolve<IProjectExplorerService>().RegisterConstructContextMenu((selected, menuItems) =>
         {
-            if (x is [IProjectFile {Extension: ".vhd"}])
+            if (selected is [IProjectFile {Extension: ".vhd"} vhdFile])
             {
-                return new[]
+                menuItems.Add(new MenuItemViewModel("Hello World")
                 {
-                    new MenuItemViewModel("Hello World")
-                    {
-                        Header = "Hello World"
-                    }
-                };
+                    Header = $"Hello World {vhdFile.Header}"
+                });
             }
-            return null;
         });
     }
 }
