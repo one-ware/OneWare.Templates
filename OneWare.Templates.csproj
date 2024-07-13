@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>0.16.8.0</PackageVersion>
+    <PackageVersion>0.18.2.0</PackageVersion>
     <PackageId>OneWare.Templates</PackageId>
     <Title>OneWare Templates</Title>
     <Description>Templates for creating OneWare extensions and libraries.</Description>
