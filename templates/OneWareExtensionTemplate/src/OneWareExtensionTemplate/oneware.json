@@ -2,8 +2,8 @@
   "Dependencies": [
     {
       "Name": "OneWare.Essentials",
-      "MinVersion": "0.5.0.0",
-      "MaxVersion": "0.5.0.0"
+      "MinVersion": "0.5.1.0",
+      "MaxVersion": "0.5.1.0"
     }
   ]
 }
