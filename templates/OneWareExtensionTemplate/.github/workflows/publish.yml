@@ -4,61 +4,38 @@ on:
   workflow_dispatch:
   release:
     types:
-      - published 
+      - published
 
 jobs:
   build:
-    strategy:
-      matrix:
-        target: ["win-x64", "linux-x64", "osx-x64", "osx-arm64"]
-        
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 8.0.x
-    - name: Get Version
-      uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
-      id: get-version
-      with:
-        proj-path: src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj
-    - name: Build ${{ matrix.target }}
-      run: dotnet build src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj -c Release -r ${{ matrix.target }} -o publish
-    - name: Compress ${{ matrix.target }}
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'zip'
-        filename: ../OneWareExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
-        directory: ./publish
-    - uses: actions/upload-artifact@v3
-      with:
-        name: OneWareExtensionTemplateExtension_${{ matrix.target }}
-        if-no-files-found: error
-        retention-days: 5
-        path: ./OneWareExtensionTemplateExtension_${{steps.get-version.outputs.version}}_${{ matrix.target }}.zip
-        
-  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    needs: [ build ]
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
       - name: Get Version
         uses: kzrnm/get-net-sdk-project-versions-action@v1.3.0
         id: get-version
         with:
           proj-path: src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj
-      - uses: actions/download-artifact@v3
+      - name: Build
+        run: dotnet build src/OneWareExtensionTemplate/OneWareExtensionTemplate.csproj -c Release -o publish
+      - name: Compress
+        uses: thedoctor0/zip-release@0.7.1
         with:
-          path: ./artifacts
-      - uses: ncipollo/release-action@v1
+          type: 'zip'
+          filename: ../OneWareExtensionTemplate_${{steps.get-version.outputs.version}}_all.zip
+          directory: ./publish
+      - name: Debug
+        run: ls
+      - uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "artifacts/**/*.zip"
+          artifacts: "OneWareExtensionTemplate_${{steps.get-version.outputs.version}}_all.zip"
           tag: ${{steps.get-version.outputs.version}}
           allowUpdates: true
