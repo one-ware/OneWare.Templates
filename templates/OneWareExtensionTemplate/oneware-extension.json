@@ -22,13 +22,13 @@
       "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate"
     }
   ],
+  "sourceUrl": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download",
   "versions": [
     {
       "version": "0.1",
       "targets": [
         {
-          "target": "all",
-          "url": "https://github.com/#GithubUser#/OneWareExtensionTemplate/releases/download/0.1/OneWareExtensionTemplate_0.1_all.zip"
+          "target": "all"
         }
       ]
     }

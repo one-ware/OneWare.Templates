@@ -11,12 +11,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="oneware.json" CopyToOutputDirectory="PreserveNewest"/>
         <AvaloniaResource Include="Assets\**\*.*" />
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="OneWare.Essentials" Version="0.9.0" Private="false" ExcludeAssets="runtime;Native" />
+        <PackageReference Include="OneWare.Essentials" Version="0.11.0" Private="false" ExcludeAssets="runtime;Native" />
     </ItemGroup>
+
+    <Target Name="GenerateCompatibilityFile" AfterTargets="Build">
+        <ItemGroup>
+            <FilteredDependencies Include="@(PackageReference)" Condition="'%(Private)' == 'false'" />
+        </ItemGroup>
+
+        <WriteLinesToFile
+                File="$(OutDir)compatibility.txt"
+                Lines="@(FilteredDependencies->'%(Identity) : %(Version)')"
+                Overwrite="true" />
+    </Target>
     
 </Project>
