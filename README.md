@@ -6,7 +6,7 @@ For more information about `dotnet new` templates see [here](https://blogs.msdn.
 
 ## Installing the templates
 
-Run from a command line (`.NET 8`):
+Run from a command line (`.NET 9`):
 
 ```powershell
 dotnet new install OneWare.Templates
@@ -34,9 +34,9 @@ Available parameters:
 
 *Description*: The target framework for the project.
 
-*Options*: **net8.0**
+*Options*: **net9.0**
 
-*By default*: net8.0
+*By default*: net9.0
 
 
 ``-G, --GithubUser``
