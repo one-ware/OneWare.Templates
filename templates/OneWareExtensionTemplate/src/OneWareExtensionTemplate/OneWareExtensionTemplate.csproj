@@ -11,22 +11,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**\*.*" />
+        <AvaloniaResource Include="Assets\**\*.*"/>
     </ItemGroup>
-    
+
     <ItemGroup>
-        <PackageReference Include="OneWare.Essentials" Version="0.11.2" Private="false" ExcludeAssets="runtime;Native" />
+        <PackageReference Include="OneWare.Essentials" Version="0.11.2" Private="false" ExcludeAssets="runtime;Native"/>
     </ItemGroup>
 
     <Target Name="GenerateCompatibilityFile" AfterTargets="Build">
         <ItemGroup>
-            <FilteredDependencies Include="@(PackageReference)" Condition="'%(Private)' == 'false'" />
+<!--/-:msbuild-conditional:noEmit -->
+            <FilteredDependencies Include="@(PackageReference)" Condition="'%(Private)' == 'false'"/>
+<!--/+:msbuild-conditional:noEmit -->
         </ItemGroup>
-
+        
         <WriteLinesToFile
                 File="$(OutDir)compatibility.txt"
                 Lines="@(FilteredDependencies->'%(Identity) : %(Version)')"
-                Overwrite="true" />
+                Overwrite="true"/>
     </Target>
-    
+
 </Project>
