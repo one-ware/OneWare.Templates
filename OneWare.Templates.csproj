@@ -7,7 +7,7 @@
     <Title>OneWare Templates</Title>
     <Description>Templates for creating OneWare extensions and libraries.</Description>
     <PackageTags>dotnet-new;templates;oneware</PackageTags>
-    <PackageIcon>com.one_ware.OneWare.png</PackageIcon>
+    <PackageIcon>package-icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/one-ware/OneWare.Templates</PackageProjectUrl>
     <RepositoryUrl>https://github.com/one-ware/OneWare.Templates.git</RepositoryUrl>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="com.one_ware.OneWare.png" Pack="true" PackagePath="/" />
+    <None Include="package-icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
