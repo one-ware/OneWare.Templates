@@ -1,5 +1,7 @@
 dotnet new uninstall OneWare.Templates
 Remove-Item bin/**/*.nupkg
-$result = dotnet pack | select-string "Successfully created package '(.*)'" -AllMatches
-$package = $result.Matches.Groups[1]
+$null = dotnet pack
+$package = Get-ChildItem .\bin -Filter 'OneWare.Templates*.nupkg' -Recurse |
+	Sort-Object LastWriteTime -Descending |
+	Select-Object -First 1 -ExpandProperty FullName
 dotnet new install $package
