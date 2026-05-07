@@ -16,13 +16,14 @@
 
     <ItemGroup>
         <PackageReference Include="OneWare.Essentials" Version="1.0.0" Private="false" ExcludeAssets="runtime;Native" />
+        <PackageReference Include="OneWare.Plugin.Sdk" Version="1.0.0" PrivateAssets="all" />
     </ItemGroup>
 
     <Target Name="GenerateCompatibilityFile" AfterTargets="Build">
         <ItemGroup>
-<!--/-:msbuild-conditional:noEmit -->
-            <FilteredDependencies Include="@(PackageReference)" Condition="'%(Private)' == 'false'"/>
-<!--/+:msbuild-conditional:noEmit -->
+    <!--/-:msbuild-conditional:noEmit -->
+            <FilteredDependencies Include="@(PackageReference)" Condition="'%(PackageReference.Private)' == 'false'"/>
+    <!--/+:msbuild-conditional:noEmit -->
         </ItemGroup>
         
         <WriteLinesToFile

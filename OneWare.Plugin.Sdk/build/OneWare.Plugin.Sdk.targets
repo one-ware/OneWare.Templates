@@ -1,0 +1,19 @@
+<Project>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug' and '$(TargetPath)' != ''">
+    <OneWareCommand Condition="'$(OneWareCommand)' == '' and '$(ONEWARE_RUN_COMMAND)' != ''">$(ONEWARE_RUN_COMMAND)</OneWareCommand>
+    <OneWareCommand Condition="'$(OneWareCommand)' == ''">oneware</OneWareCommand>
+    <OneWarePluginDebugPath>$([System.IO.Path]::GetDirectoryName('$(TargetPath)'))</OneWarePluginDebugPath>
+    <OneWareRunArguments>--modules &quot;$(OneWarePluginDebugPath)&quot;</OneWareRunArguments>
+    <StartAction Condition="'$(StartAction)' == ''">Program</StartAction>
+    <StartProgram Condition="'$(StartProgram)' == '' and '$(OS)' == 'Windows_NT'">$([System.Environment]::GetEnvironmentVariable('ComSpec'))</StartProgram>
+    <StartProgram Condition="'$(StartProgram)' == '' and '$(OS)' != 'Windows_NT'">/bin/sh</StartProgram>
+    <StartArguments Condition="'$(StartArguments)' == '' and '$(OS)' == 'Windows_NT'">/c &quot;&quot;$(OneWareCommand)&quot; $(OneWareRunArguments)&quot;</StartArguments>
+    <StartArguments Condition="'$(StartArguments)' == '' and '$(OS)' != 'Windows_NT'">-lc '&quot;$(OneWareCommand)&quot; $(OneWareRunArguments)'</StartArguments>
+    <StartWorkingDirectory Condition="'$(StartWorkingDirectory)' == ''">$(OneWarePluginDebugPath)</StartWorkingDirectory>
+    <RunCommand Condition="'$(RunCommand)' == ''">$(OneWareCommand)</RunCommand>
+    <RunArguments Condition="'$(RunArguments)' == ''">$(OneWareRunArguments)</RunArguments>
+    <RunWorkingDirectory Condition="'$(RunWorkingDirectory)' == ''">$(OneWarePluginDebugPath)</RunWorkingDirectory>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <PackageId>OneWare.Plugin.Sdk</PackageId>
+    <Version Condition="'$(Version)' == ''">1.0.0</Version>
+    <Authors>OneWare</Authors>
+    <Description>MSBuild debug launch integration for OneWare plugin development.</Description>
+    <PackageProjectUrl>https://github.com/one-ware/OneWare.Templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/one-ware/OneWare.Templates.git</RepositoryUrl>
+    <PackageTags>oneware;plugin;sdk;msbuild</PackageTags>
+    <PackageType>Dependency</PackageType>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoBuild>true</NoBuild>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="build\**\*" Pack="true" PackagePath="build\" />
+  </ItemGroup>
+
+</Project>

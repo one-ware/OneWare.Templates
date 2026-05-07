@@ -4,6 +4,7 @@
     <PackageType>Template</PackageType>
     <PackageVersion>1.0.0</PackageVersion>
     <PackageId>OneWare.Templates</PackageId>
+    <PluginSdkPackageVersion>1.0.0</PluginSdkPackageVersion>
     <Title>OneWare Templates</Title>
     <Description>Templates for creating OneWare extensions and libraries.</Description>
     <PackageTags>dotnet-new;templates;oneware</PackageTags>
@@ -26,5 +27,15 @@
   <ItemGroup>
     <None Include="package-icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalPackProjects Include="OneWare.Plugin.Sdk\OneWare.Plugin.Sdk.csproj" />
+  </ItemGroup>
+
+  <Target Name="PackAdditionalProjects" AfterTargets="Pack">
+    <MSBuild Projects="@(AdditionalPackProjects)"
+      Targets="Restore;Pack"
+      Properties="Configuration=$(Configuration);PackageOutputPath=$(PackageOutputPath);Version=$(PluginSdkPackageVersion)" />
+  </Target>
 
 </Project>
